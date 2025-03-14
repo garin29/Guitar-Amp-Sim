@@ -277,7 +277,7 @@ int main(void)
 
 	 //Initialize audio processing components:
 
-	Init_FIR_Filter(&AntiAliasing_LowPass, ANTI_ALIAS10_SIZE, &AntiAlias_Coefs[0], &AntiAlias_LowPass_Buff[0], FIR_OFF, 1);
+	Init_FIR_Filter(&AntiAliasing_LowPass, ANTI_ALIAS10_SIZE, &AntiAlias_Coefs[0], &AntiAlias_LowPass_Buff[0], FIR_ON, 1);
 
 	Init_QIIR_Filter(&Pregain_IIR0, HIGHPASS, 623.0f, 0.6f , 1.0f, ACTUAL_FS, QIIR_ON, 2, CTRL_OFF);
 	Update_QIIR_Filter(&Pregain_IIR0);
@@ -297,7 +297,7 @@ int main(void)
 	Init_QIIR_Filter(&Pregain_IIR5, BELL, 680.0f, 0.94f , 1.4f, ACTUAL_FS, QIIR_ON, 7, CTRL_OFF);
 	Update_QIIR_Filter(&Pregain_IIR5);
 
-	Init_QIIR_Filter(&Pregain_IIR6, LOWPASS, 5000.0f, 0.8f , 1.0f, ACTUAL_FS, QIIR_ON, 8, CTRL_OFF);
+	Init_QIIR_Filter(&Pregain_IIR6, LOWPASS, 5000.0f, 0.8f , 1.0f, ACTUAL_FS, QIIR_OFF, 8, CTRL_OFF);
 	Update_QIIR_Filter(&Pregain_IIR6);
 
 
@@ -326,7 +326,7 @@ int main(void)
 	Init_QIIR_Filter(&PostGain_IIR1, BELL, 2300.0f, 0.71f , 0.673f, ACTUAL_FS, QIIR_ON, 16, CTRL_OFF);
 	Update_QIIR_Filter(&PostGain_IIR1);
 
-	Init_QIIR_Filter(&PostGain_IIR2, LOWPASS, 8000.0f, 0.66f , 1.0f, ACTUAL_FS, QIIR_ON, 17, CTRL_OFF);
+	Init_QIIR_Filter(&PostGain_IIR2, LOWPASS, 12000.0f, 0.66f , 1.0f, ACTUAL_FS, QIIR_ON, 17, CTRL_OFF);
 	Update_QIIR_Filter(&PostGain_IIR2);
 
 	Init_QIIR_Filter(&PostGain_IIR3, BELL, 350.0f, 0.94f , 0.86f, ACTUAL_FS, QIIR_OFF, 17, CTRL_OFF);
